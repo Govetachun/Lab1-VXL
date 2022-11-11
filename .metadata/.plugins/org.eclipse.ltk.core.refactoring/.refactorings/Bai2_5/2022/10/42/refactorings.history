@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;Bai2_5/Core/Src/timer.c&apos; to &apos;timer.cpp&apos;" description="Rename resource &apos;timer.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Core/Src/timer.c" name="timer.cpp" stamp="1665559816817" updateReferences="true"/>
+</session>

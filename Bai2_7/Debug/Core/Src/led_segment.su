@@ -1,0 +1,3 @@
+led_segment.cpp:9:6:void display7SEG(int)	16	static
+led_segment.cpp:92:6:void update7SEG(int)	16	static
+led_segment.cpp:129:6:void updateClockBuffer(int, int)	16	static

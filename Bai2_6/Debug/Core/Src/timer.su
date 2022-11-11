@@ -1,0 +1,4 @@
+timer.cpp:9:1:Timer::Timer()	16	static
+timer.cpp:14:6:void Timer::run()	16	static
+timer.cpp:23:6:bool Timer::hasSignal()	16	static
+timer.cpp:27:6:void Timer::setTimer(int)	16	static

@@ -37,13 +37,13 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  16 .debug_macro  00017929  00000000  00000000  0002d390  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   0000e116  00000000  00000000  00044cb9  2**0
+ 17 .debug_line   0000e114  00000000  00000000  00044cb9  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    0008240c  00000000  00000000  00052dcf  2**0
+ 18 .debug_str    0008240c  00000000  00000000  00052dcd  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000053  00000000  00000000  000d51db  2**0
+ 19 .comment      00000053  00000000  00000000  000d51d9  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  000029a8  00000000  00000000  000d5230  2**2
+ 20 .debug_frame  000029a8  00000000  00000000  000d522c  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -1085,7 +1085,7 @@ void getKeyInput(){
 int keyReg22 = NORMAL_STATE;
 
 int keyReg32 = NORMAL_STATE;
-int timeForKeyPress2 = 50;
+int timeForKeyPress2 = 200;
 
 int isButtonPress2(){
  8000900:	b480      	push	{r7}
@@ -1182,11 +1182,11 @@ void getKeyInput2(){
  8000994:	d117      	bne.n	80009c6 <getKeyInput2+0x8a>
 				subKeyProcess2();
  8000996:	f7ff ffc5 	bl	8000924 <subKeyProcess2>
-				timeForKeyPress2 = 50;
+				timeForKeyPress2 = 200;
  800099a:	4b11      	ldr	r3, [pc, #68]	; (80009e0 <getKeyInput2+0xa4>)
- 800099c:	2232      	movs	r2, #50	; 0x32
+ 800099c:	22c8      	movs	r2, #200	; 0xc8
  800099e:	601a      	str	r2, [r3, #0]
-				timeForKeyPress2 = 50;
+				timeForKeyPress2 = 200;
 			}
 		}
 	}
@@ -1211,9 +1211,9 @@ void getKeyInput2(){
  80009ba:	d101      	bne.n	80009c0 <getKeyInput2+0x84>
 					subKeyProcess2();
  80009bc:	f7ff ffb2 	bl	8000924 <subKeyProcess2>
-				timeForKeyPress2 = 50;
+				timeForKeyPress2 = 200;
  80009c0:	4b07      	ldr	r3, [pc, #28]	; (80009e0 <getKeyInput2+0xa4>)
- 80009c2:	2232      	movs	r2, #50	; 0x32
+ 80009c2:	22c8      	movs	r2, #200	; 0xc8
  80009c4:	601a      	str	r2, [r3, #0]
 }
  80009c6:	bf00      	nop
@@ -2209,16 +2209,17 @@ void HAL_TIM_PeriodElapsedCallback ( TIM_HandleTypeDef * htim )
  800105e:	b082      	sub	sp, #8
  8001060:	af00      	add	r7, sp, #0
  8001062:	6078      	str	r0, [r7, #4]
-	display();
- 8001064:	f000 f988 	bl	8001378 <display>
+
 	if(!stop){
- 8001068:	4b09      	ldr	r3, [pc, #36]	; (8001090 <HAL_TIM_PeriodElapsedCallback+0x34>)
- 800106a:	681b      	ldr	r3, [r3, #0]
- 800106c:	2b00      	cmp	r3, #0
- 800106e:	d101      	bne.n	8001074 <HAL_TIM_PeriodElapsedCallback+0x18>
+ 8001064:	4b0a      	ldr	r3, [pc, #40]	; (8001090 <HAL_TIM_PeriodElapsedCallback+0x34>)
+ 8001066:	681b      	ldr	r3, [r3, #0]
+ 8001068:	2b00      	cmp	r3, #0
+ 800106a:	d101      	bne.n	8001070 <HAL_TIM_PeriodElapsedCallback+0x14>
 		timerRun();
- 8001070:	f000 f9a4 	bl	80013bc <timerRun>
+ 800106c:	f000 f9a6 	bl	80013bc <timerRun>
 	}
+	display();
+ 8001070:	f000 f982 	bl	8001378 <display>
 	display2();
  8001074:	f000 f9dc 	bl	8001430 <display2>
 	timerRun2();
@@ -2771,15 +2772,15 @@ int glitch(){
 void display(){
  8001378:	b580      	push	{r7, lr}
  800137a:	af00      	add	r7, sp, #0
-	if(timer1_counter % 100 == 0){
+	if(timer1_counter % 50 == 0){
  800137c:	4b0d      	ldr	r3, [pc, #52]	; (80013b4 <display+0x3c>)
  800137e:	681a      	ldr	r2, [r3, #0]
  8001380:	4b0d      	ldr	r3, [pc, #52]	; (80013b8 <display+0x40>)
  8001382:	fb83 1302 	smull	r1, r3, r3, r2
- 8001386:	1159      	asrs	r1, r3, #5
+ 8001386:	1119      	asrs	r1, r3, #4
  8001388:	17d3      	asrs	r3, r2, #31
  800138a:	1acb      	subs	r3, r1, r3
- 800138c:	2164      	movs	r1, #100	; 0x64
+ 800138c:	2132      	movs	r1, #50	; 0x32
  800138e:	fb01 f303 	mul.w	r3, r1, r3
  8001392:	1ad3      	subs	r3, r2, r3
  8001394:	2b00      	cmp	r3, #0

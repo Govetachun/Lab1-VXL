@@ -66,10 +66,11 @@ static void MX_TIM2_Init(void);
 /* USER CODE BEGIN 0 */
 void HAL_TIM_PeriodElapsedCallback ( TIM_HandleTypeDef * htim )
 {
-	display();
+
 	if(!stop){
 		timerRun();
 	}
+	display();
 	display2();
 	timerRun2();
 	getKeyInput2();

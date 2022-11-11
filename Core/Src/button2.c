@@ -15,7 +15,7 @@ int keyReg12 = NORMAL_STATE;
 int keyReg22 = NORMAL_STATE;
 
 int keyReg32 = NORMAL_STATE;
-int timeForKeyPress2 = 50;
+int timeForKeyPress2 = 200;
 
 int isButtonPress2(){
 	if(button_flag2 ==1){
@@ -36,7 +36,7 @@ void getKeyInput2(){
 			keyReg32 = keyReg22;
 			if(keyReg22 == PRESSED_STATE){
 				subKeyProcess2();
-				timeForKeyPress2 = 50;
+				timeForKeyPress2 = 200;
 			}
 		}else{
 			timeForKeyPress2--;
@@ -45,7 +45,7 @@ void getKeyInput2(){
 					subKeyProcess2();
 				}
 //				subKeyProcess();
-				timeForKeyPress2 = 50;
+				timeForKeyPress2 = 200;
 			}
 		}
 	}

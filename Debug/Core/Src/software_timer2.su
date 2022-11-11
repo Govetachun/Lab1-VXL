@@ -1,0 +1,5 @@
+software_timer2.c:16:6:clearTimer2	4	static
+software_timer2.c:20:6:setTimer2	16	static
+software_timer2.c:24:5:glitch2	4	static
+software_timer2.c:30:6:display2	8	static
+software_timer2.c:41:6:timerRun2	4	static

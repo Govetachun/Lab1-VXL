@@ -1,0 +1,4 @@
+fsm_manual.c:14:6:blink_red	8	static
+fsm_manual.c:25:6:blink_green	8	static
+fsm_manual.c:37:6:blink_yellow	8	static
+fsm_manual.c:48:6:fsm_manual_run1	8	static

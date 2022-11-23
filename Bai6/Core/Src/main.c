@@ -315,32 +315,34 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
   /* USER CODE END 2 */
-
+  int second = 0;
+  int minute = 0;
+  int hour = 0;
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
 
     /* USER CODE END WHILE */
-	  for(int k =1;k<13;k++){
+	  clearLed();
+	  second++;
+	  if (second >= 60){
+		  second = 0;
+		  minute ++;
+	  }
+	  if (minute >= 60){
+		  minute = 0;
+		  hour ++;
+	  }
+	  if (hour == 12){
+		  hour = 0;
+	 }
 
-	  for(int i=1;i<13;i++){
-//		for(int k=0;k<5;k++){
-		clearLed();
-		  for(int j=1;j<13;j++){
-//			  clearLed();
-			  if(j>1){
-				  deactiveLed(j-1);
-			  }
-			  activeLed(k);
-			  activeLed(i);
-			  activeLed(j);
-			  HAL_Delay (100) ;
-		  }
-//		}
-	  }
-	  }
-    /* USER CODE BEGIN 3 */
+	  activeLed(second/5);
+	  activeLed(minute/5);
+	  activeLed(hour);
+	  HAL_Delay(10);
+	  /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
 }

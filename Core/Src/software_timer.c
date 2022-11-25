@@ -26,7 +26,7 @@ int glitch(){
 	return 0;
 }
 void display(){
-	if(timer1_counter % 50 == 0){
+	if(timer1_counter % 100 == 0){
 		display7SEG1(timer1_counter/100);
 	}
 

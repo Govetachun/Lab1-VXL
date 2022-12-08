@@ -14,14 +14,6 @@ void uart_commnunication_fsm(void){
 		setTimer2(TICK);
 		case_sensor = READER_READ;
 		break;
-
-	case READER_WAIT:
-		if(print == 1){
-			setTimer2(SENSOR_READ_PERIOD);
-			readSensor();
-			case_sensor = READER_READ;
-		}
-		break;
 	case READER_READ:
 		if(print == 0){
 			case_sensor = READER_WAIT;
@@ -31,6 +23,17 @@ void uart_commnunication_fsm(void){
 			setTimer2(SENSOR_READ_PERIOD);
 			readSensor();
 		}
+		break;
+
+	case READER_WAIT:
+		if(print == 1){
+			case_sensor = READER_PRINT;
+		}
+		break;
+	case READER_PRINT:
+		setTimer2(SENSOR_READ_PERIOD);
+		readSensor();
+		case_sensor = READER_READ;
 		break;
 	}
 

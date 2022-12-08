@@ -19,15 +19,17 @@
 #define BUFFER_SIZE 30
 
 #define READER_INIT 1
-#define READER_WAIT 2
-#define READER_READ 3
+#define READER_READ 2
+#define READER_WAIT 3
+#define READER_PRINT 4
 
-#define INIT_MODE 4
-#define PRINT_MODE 5
-#define WAIT_MODE 6
+#define INIT_MODE 5
+#define READ_MODE 6
+#define PRINT_MODE 7
+#define WAIT_MODE 8
 
-#define LED_INIT 7
-#define LED_BLINKS 8
+#define LED_INIT 9
+#define LED_BLINKS 10
 
 extern uint8_t case_parser;
 extern uint8_t case_led;
